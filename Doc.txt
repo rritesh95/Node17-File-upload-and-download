@@ -1,0 +1,17 @@
+"BodyParser" plugin which we are using to parse incoming request works with "text"(urlencoded) type of data only. If we need to work will "file" type of data then we have to install a 3rd party plugin named "multer"(used by instructor). "Multer" will help us while working with requests having "files" as one of the input in parsing.
+
+npm install --save multer
+
+multer middleware will be looking for encoding type="multipart/form-data" which means form input data can be encoded with multiple types.
+
+files are to big so it should not be stored in a database instead it should be stored on a file system and path should be stored in database.
+
+//Reading whole file loading it's content in memory and sending to
+//client is ok but memory is limited so this can create problem when file size is large
+//OR there are many requests in memory, So alternative to this is to use
+//streams of data and read it chunk by chunk and sending response to browser in
+//chunks instead of reading whole file at once and sending full response in one go
+
+we can do it with 3rd party package named "pdfkit" also which can create pdf on the fly and give us stream of data that we can send to browser.
+
+///////npm install --save pdfkit
